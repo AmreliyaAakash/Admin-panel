@@ -1,27 +1,30 @@
 import React from 'react'
-import { Link,NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { GoPasskeyFill } from "react-icons/go";
-import {MdOutlineCancel} from 'react-icons/md'
+import { MdOutlineCancel } from 'react-icons/md'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import { links } from '../data/dummy'
 import { useStateContext } from '../context/ContextProvider.jsx'
 
-
-
-
-
 const Sidebar = () => {
+  const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
-  const {activeMenu,setActiveMenu,screenSize,currentColor} = useStateContext()
-   const handleCloseSideBar = () => {
+  const handleCloseSideBar = () => {
     if (activeMenu !== undefined && screenSize <= 900) {
       setActiveMenu(false);
     }
   };
+
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-gray-100 m-2';
+
   return (
-    <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
+    <div
+      className={`ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10
+        transform transition-transform duration-500 ease-in-out
+        ${activeMenu ? 'translate-x-0' : '-translate-x-full'}
+      `}
+    >
       {activeMenu && (
         <>
           <div className='flex justify-between items-center'>
@@ -35,8 +38,8 @@ const Sidebar = () => {
             <TooltipComponent content='menu' position='BottomCenter'>
               <button
                 type='button'
-                className='text-xl rounded-full p-3 hover:bg-gray-600 mt-4 blockmd:hidden'
-                onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+                className='text-xl rounded-full p-3 hover:bg-gray-600 mt-4 block md:hidden'
+                onClick={() => setActiveMenu((prev) => !prev)}
               >
                 <MdOutlineCancel />
               </button>
@@ -49,13 +52,18 @@ const Sidebar = () => {
                   {item.title}
                 </p>
                 {item.links.map((link) => (
-                  <NavLink to={`/${link.name}`} key={link.name} onClick={handleCloseSideBar}  style={({ isActive }) => ({
+                  <NavLink
+                    to={`/${link.name}`}
+                    key={link.name}
+                    onClick={handleCloseSideBar}
+                    style={({ isActive }) => ({
                       backgroundColor: isActive ? currentColor : '',
-                    })} className={({isActive}) => isActive ? activeLink : normalLink}>
+                    })}
+                    className={({ isActive }) => isActive ? activeLink : normalLink}
+                  >
                     {link.icon}
                     <span className='capitalize'>{link.name}</span>
-
-                  </NavLink> 
+                  </NavLink>
                 ))}
               </div>
             ))}

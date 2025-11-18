@@ -1,30 +1,33 @@
-import React, { useEffect } from 'react'
-import { AiOutlineMenu } from 'react-icons/ai'
-import { FiShoppingCart } from 'react-icons/fi'
-import { BsChatLeft } from 'react-icons/bs'
-import { RiNotification3Line } from 'react-icons/ri'
-import { MdArrowDownward, MdKeyboardArrowDown } from 'react-icons/md'
-import { TooltipComponent } from '@syncfusion/ej2-react-popups'
-import avatar from '../data/avatar.jpg'
+import React, { useEffect } from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { FiShoppingCart } from 'react-icons/fi';
+import { BsChatLeft } from 'react-icons/bs';
+import { RiNotification3Line } from 'react-icons/ri';
+import { MdKeyboardArrowDown } from 'react-icons/md';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import avatar from '../data/avatar.jpg';
+import { useStateContext } from '../context/ContextProvider.jsx';
+import UserProfile from './UserProfile.jsx';
+import NotificationsPanel from './Notification.jsx';
+import Chat from './Chart.jsx';
+import Cart from './Cart.jsx';
 
-
-
-// import { Cart, Chat, Notification, UserProfile } from '.';
-const NavButton = ({ title, customfunc, icon, dotColor }) => (
+const NavButton = ({ title, customFunc, icon, dotColor, color }) => (
   <TooltipComponent content={title} position='BottomCenter'>
-    <button type='button' onClick={customfunc} className='relative p-3 hover:bg-light-gray rounded-full text-xl hover:bg-gray-200'>
-
-      <span style={{ background: dotColor }}
-        className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'/>
-        {icon}
-      
+    <button
+      type='button'
+      onClick={customFunc}
+      style={{ color }}
+      className='relative p-3 hover:bg-light-gray rounded-full text-xl hover:bg-gray-200'
+    >
+      <span
+        style={{ background: dotColor }}
+        className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
+      />
+      {icon}
     </button>
   </TooltipComponent>
-)
-import { useStateContext } from '../context/ContextProvider.jsx'
-import UserProfile from './UserProfile.jsx'
-
-
+);
 
 const Navbar = () => {
   const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
@@ -49,7 +52,7 @@ const Navbar = () => {
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
-return (
+  return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
 
       <NavButton title="Menu" customFunc={handleActiveMenu} color={currentColor} icon={<AiOutlineMenu />} />
@@ -70,17 +73,18 @@ return (
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{' '}
               <span className="text-gray-400 font-bold ml-1 text-14">
-                Michael
+                Aakash
               </span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
 
-        {isClicked.cart && (<Cart />)}
-        {isClicked.chat && (<Chat />)}
-        {isClicked.notification && (<Notification />)}
-        {isClicked.userProfile && (<UserProfile />)}
+       {isClicked.cart && (<Cart />)}
+{isClicked.chat && (<Chat />)}
+{isClicked.notification && (<NotificationsPanel />)}
+{isClicked.userProfile && (<UserProfile />)}
+
       </div>
     </div>
   );
