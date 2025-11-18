@@ -4,6 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './Component';
+
 import {
   Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers,
   Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor

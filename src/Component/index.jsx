@@ -1,16 +1,18 @@
-export { default as Button } from './Button';
-export { default as ThemeSettings } from './ThemeSettings';
-export { default as Sidebar } from './Sidebar';
+export { default as Button } from './Button.jsx';
+export { default as ThemeSettings } from './ThemeSettings.jsx';
+export { default as Sidebar } from './Sidebar.jsx';
 
-export { default as Navbar } from './Navbar';
-export { default as Footer } from './Footer';
-export { default as Cart } from './Cart';
-export { default as Chart } from './Chart';
-export { default as Notification } from './Notification';
-export { default as UserProfile } from './UserProfile';
-export { default as SparkLine } from './Charts/SparkLine';
-export { default as LineChart } from './Charts/LineChart';
-export { default as Stacked } from './Charts/Stacked';
-export { default as Pie } from './Charts/Pie';
-export { default as ChartsHeader } from './ChartsHeader';
-export { default as Header } from './Header';
+export { default as Navbar } from './Navbar.jsx';
+export { default as Footer } from './Footer.jsx';
+export { default as Cart } from './Cart.jsx';
+export { default as Chart } from './Chart.jsx';
+export { default as Notification } from './Notification.jsx';
+export { default as UserProfile } from './UserProfile.jsx';
+
+export { default as SparkLine } from './Charts/SparkLine.jsx';
+export { default as LineChart } from './Charts/LineChart.jsx';
+export { default as Stacked } from './Charts/Stacked.jsx';
+export { default as Pie } from './Charts/Pie.jsx';
+
+export { default as ChartsHeader } from './ChartsHeader.jsx';
+export { default as Header } from './Header.jsx';
