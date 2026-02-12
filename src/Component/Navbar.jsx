@@ -35,11 +35,21 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
-    window.addEventListener('resize', handleResize);
-
+    // Initial check
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    let timeoutId;
+    const debouncedResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleResize, 200);
+    };
+
+    window.addEventListener('resize', debouncedResize);
+
+    return () => {
+      window.removeEventListener('resize', debouncedResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   useEffect(() => {
