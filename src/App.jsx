@@ -9,6 +9,7 @@ import {
   Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers,
   Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor
 } from './pages';
+import '@syncfusion/ej2/material.css';
 import './App.css';
 
 import { useStateContext } from './context/ContextProvider';
