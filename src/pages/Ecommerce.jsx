@@ -3,13 +3,14 @@ import { GoDotFill } from 'react-icons/go'
 import { Stacked, Pie, Button, SparkLine } from '../Component'
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy'
 import { useStateContext } from '../context/ContextProvider'
+import welcomeBg from '../data/welcome-bg.svg';
 
 const Ecommerce = () => {
   const { currentColor } = useStateContext();
   return (
     <div className='mt-12 flex-col'>
       <div className='flex flex-wrap  lg:flex-nowrap justify-center'>
-        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center bg-[url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b82b58ac-7d87-4320-98cc-c73c8800a782/dk8txhx-c6d9068f-99d9-4830-8f22-6e900c2c44b5.png/v1/fill/w_1280,h_262,q_80,strp/screenshot_2025_07_30_161813_by_aakash87_dk8txhx-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjYyIiwicGF0aCI6IlwvZlwvYjgyYjU4YWMtN2Q4Ny00MzIwLTk4Y2MtYzczYzg4MDBhNzgyXC9kazh0eGh4LWM2ZDkwNjhmLTk5ZDktNDgzMC04ZjIyLTZlOTAwYzJjNDRiNS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yei-gJeh9xwF6VppsrM6-IMALthykUYvN3n29QOnPmo)] '>
+        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-no-repeat bg-cover bg-center' style={{ backgroundImage: `url(${welcomeBg})` }}>
           <div className='flex justify-between items-center'>
             <div className=''>
               <p className='font-semibold text-gray-400'>Earnings</p>
@@ -89,7 +90,7 @@ const Ecommerce = () => {
                 />
               </div>
               <div className='mt-10'>
-                <Button color='white' bgColor={currentColor} text='Download Report' borderRadius='10px' size='md' />   
+                <Button color='white' bgColor={currentColor} text='Download Report' borderRadius='10px' size='md' />
               </div>
             </div>
             <div>

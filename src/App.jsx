@@ -31,6 +31,7 @@ const App = () => {
 
   // toggle dark mode on <html>
   useEffect(() => {
+    console.log('Current mode:', currentMode);
     if (currentMode === 'Dark') {
       document.documentElement.classList.add('dark');
     } else {
