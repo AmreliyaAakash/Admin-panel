@@ -7,7 +7,7 @@ import { themeColors } from '../data/dummy';
 import { useStateContext } from '../context/ContextProvider';
 
 const ThemeSettings = () => {
-  const { setColor, setmode, currentMode, currentColor, themeSettings, setThemeSettings } = useStateContext();
+  const { setColor,  currentColor, themeSettings, setThemeSettings } = useStateContext();
   return (
     <div className='bg-half-transparent fixed right-0 top-0  nav-item custom-css-box'>
       <div className='float-right h-screen dark:text-gray-200 bg-white dark:bg-[#484B52]'>
@@ -26,30 +26,6 @@ const ThemeSettings = () => {
           <p className="font-semibold text-xl ">Theme Option</p>
 
           <div className="mt-4">
-            <input
-              type="radio"
-              id="light"
-              name="theme"
-              value="Light"
-              className="cursor-pointer"
-              onChange={setmode}
-              checked={currentMode === 'Light'}
-            />
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
-              Light
-            </label>
-          </div>
-          <div className="mt-2">
-            <input
-              type="radio"
-              id="dark"
-              name="theme"
-              value="Dark"
-              onChange={setmode}
-              className="cursor-pointer"
-              checked={currentMode === 'Dark'}
-            />
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
               Dark
