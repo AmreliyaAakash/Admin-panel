@@ -13,3 +13,5 @@ export { default as Stacked } from './Charts/Stacked.jsx';
 export { default as Pie } from './Charts/Pie.jsx';
 export { default as ChartsHeader } from './ChartsHeader.jsx';
 export { default as Header } from './Header.jsx';
+export { default as Loader } from './Loader.jsx';
+export { default as Skeleton } from './Skeleton.jsx';

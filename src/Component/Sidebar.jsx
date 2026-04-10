@@ -15,14 +15,14 @@ const Sidebar = () => {
     }
   };
 
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
-  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-gray-100 m-2';
+  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 active-pill shadow-lg transition-all duration-300';
+  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-gray-100 m-2 transition-all duration-200 hover:translate-x-2';
 
   return (
     <div
       className={`ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10
-        transform transition-transform duration-500 ease-in-out
-        ${activeMenu ? 'translate-x-0' : '-translate-x-full'}
+        transform transition-all duration-500 ease-in-out sidebar-glass rounded-r-3xl
+        ${activeMenu ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}
       `}
     >
       {activeMenu && (
@@ -59,9 +59,11 @@ const Sidebar = () => {
                     style={({ isActive }) => ({
                       backgroundColor: isActive ? currentColor : '',
                     })}
-                    className={({ isActive }) => isActive ? activeLink : normalLink}
+                    className={({ isActive }) => `group ${isActive ? activeLink : normalLink}`}
                   >
-                    {link.icon}
+                    <span className="transition-transform duration-300 group-hover:scale-125">
+                      {link.icon}
+                    </span>
                     <span className='capitalize'>{link.name}</span>
                   </NavLink>
                 ))}

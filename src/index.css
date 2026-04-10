@@ -43,6 +43,45 @@ body {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
+/* Premium Polish V2 */
+body {
+    transition: background-color 0.5s ease;
+}
+
+.premium-card {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease !important;
+}
+
+.premium-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px -10px !important;
+}
+
+.sidebar-glass {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.dark .sidebar-glass {
+    background-color: rgba(32, 35, 42, 0.85);
+}
+
+.active-pill {
+    position: relative;
+    overflow: hidden;
+}
+
+.active-pill::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: currentColor;
+    border-radius: 0 4px 4px 0;
+}
+
 /* Custom Theme Switch Styles */
 .theme-toggle-wrapper {
     display: flex;
@@ -243,6 +282,61 @@ body {
 .switch input:checked+.slider .spaceship {
     opacity: 1;
     transform: translateY(-100px) translateX(40px);
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes entranceFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-block {
+    opacity: 0;
+    animation: entranceFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.animate-shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+.dark .animate-shimmer::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
 }
 
 @keyframes wiggle {
